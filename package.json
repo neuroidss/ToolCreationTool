@@ -1,0 +1,27 @@
+{
+  "name": "npm install",
+  "version": "0.1.0",
+  "description": "An LLM tool library to dynamically create and manage other tools using RAG.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "llm",
+    "ai",
+    "tool",
+    "function calling",
+    "rag",
+    "chromadb",
+    "openai",
+    "ollama"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "chromadb": "^1.8.1",
+    "openai": "^4.0.0",
+    "uuid": "^9.0.1"
+  }
+}
