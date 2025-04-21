@@ -137,33 +137,33 @@ ToolManager adds this tool to ChromaDB.
 The agent then uses the newly created create_world tool to generate the game world data.
 
 
-# Artifacts as Tools: A player wants a unique item: "Forge me a 'Helm of Wisdom' that increases intelligence."
+Artifacts as Tools: A player wants a unique item: "Forge me a 'Helm of Wisdom' that increases intelligence."
 Agent uses create_new_tool -> LLM generates create_artifact(name, description, stats, location) tool -> Added to RAG.
 Agent uses create_artifact to place the Helm in the world. The artifact itself might represent the ability to use a related tool (e.g., an analyze_lore(target) tool associated with the Helm). Artifacts become tangible representations of tool access/usage rights.
 
 
-# World Interaction:
+World Interaction:
 "Where is the Helm of Wisdom?" -> create_new_tool -> find_artifact(name) -> Add tool -> Use tool.
 "Move the Helm to the highest mountain." -> create_new_tool -> move_artifact(name, new_location) -> Add tool -> Use tool.
 
 
- Low-Latency Input (Gamepad): A player uses a gamepad joystick to move.
+Low-Latency Input (Gamepad): A player uses a gamepad joystick to move.
 Frontend sends high-frequency "move intent" data.
 Agent initially uses create_new_tool -> LLM generates move_player(player_id, direction, speed) tool -> Added to RAG.
 Crucially, the LLM/Agent also creates a player-specific "Movement Artifact" on the map, linked to the move_player tool.
 The backend game loop directly checks for joystick input associated with this artifact and calls the move_player tool without involving the main LLM reasoning loop for every small movement, enabling responsive control. The LLM is only involved in creating the tool and the artifact linkage initially.
 
 
-# Future: Brain-Computer Interface (BCI) & Blockchain:
+Future: Brain-Computer Interface (BCI) & Blockchain:
 Replace gamepad/keyboard with EEG or other BCI. Player thinks "cast fireball."
 BCI sends complex data patterns.
 Agent uses create_new_tool, possibly prompting the LLM with relevant scientific papers (found using another generated tool like find_research_papers(query)).
 LLM generates highly specialized tools like interpret_bci_intent(bci_data, context) and execute_combat_ability(player_id, ability_name, target).
 These tools, and the "artifacts" linking BCI patterns to game actions, represent a deep, personalized connection between the player's "vibe" (neural signals) and the AI.
-Due to their complexity and unique origin, these BCI-generated tool/artifact pairs could be registered as NFTs on a blockchain, potentially having value or utility even outside the game as novel BCI-AI interfaces. Players using standard inputs might be seen as less "attuned" to the world's deep magic (the LLM's creative potential).
+Due to their complexity and unique origin, these BCI-generated tool/artifact pairs could be registered on a blockchain, potentially having value or utility even outside the game as novel BCI-AI interfaces. Players using standard inputs might be seen as less "attuned" to the world's deep magic (the LLM's creative potential).
 
 
-# Future Development
+## Future Development
 Implement execution logic for LLM-generated tools.
 Support for more LLM APIs (Gemini, Claude).
 Python version with identical structure.
