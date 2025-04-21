@@ -49,7 +49,7 @@ const llmClient = new OpenAI({
     baseURL: process.env.OPENAI_API_BASE || 'http://localhost:11434/v1',
     apiKey: process.env.OPENAI_API_KEY || 'ollama',
 });
-llmClient.model = process.env.MODEL_NAME || 'llama3';
+llmClient.model = process.env.MODEL_NAME || 'qwen2.5-coder:7b-instruct-q8_0';
 
 // 2. Initialize Tool Manager
 // Pass the LLM client for use by the ToolCreationTool's execution logic
